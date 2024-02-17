@@ -13,7 +13,7 @@ def comms_alloc(community_name):
     storage_docs = db.collection('storage').stream()
     fish_docs = db.collection('fish_data').stream()
     communities_docs = db.collection('communities').where('community_name', '==', community_name).stream()
-
+    schedule_docs = db.collection('schedule').where('community_name', '==', community_name).stream()
     # Initialize an empty list to store price*quantity tuples
     all_price_quantity = []
 
@@ -76,7 +76,27 @@ def comms_alloc(community_name):
             net_type_list[fish] = net_type
             
     print(net_type_list)
+
+
+   ######### #finally update thsi schedule in schedule_docs
+
+    #update the data in schedule_docs 
+    for doc in schedule_docs:
+        doc_ref = db.collection('schedule').document(doc.id)
+        doc_ref.set({
+            'community_name': community_name,
+            'fish_names': cut_short_list,
+        }, merge=True)
+    if doc not in schedule_docs:
+        schedule_ref = db.collection('schedule')
+        schedule_ref.document(community_name).set({
+            'community_name': community_name,
+            'fish_names': cut_short_list,
+        })
+
+
+    print ("Schedule updated successfully")
     return net_type_list
 
 # # Example usage
-# comms_alloc("Community 7")
+comms_alloc("Community 6")
