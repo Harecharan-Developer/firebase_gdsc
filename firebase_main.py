@@ -1,7 +1,7 @@
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
-cred = credentials.Certificate(r"C:\Users\DELL\Downloads\firebase_gdsc\pyfirebasesdk.json")
+cred = credentials.Certificate("pyfirebasesdk.json")
 firebase_admin.initialize_app(cred)
 
 db=firestore.client()

@@ -3,7 +3,7 @@ from firebase_admin import credentials, firestore
 import random
 
 # Initialize Firebase Admin SDK with credentials
-cred = credentials.Certificate(r"C:\Users\DELL\Downloads\firebase_gdsc\pyfirebasesdk.json")
+cred = credentials.Certificate("pyfirebasesdk.json")
 firebase_admin.initialize_app(cred)
 
 # Create a Firestore client
@@ -61,7 +61,7 @@ community_fish = {}
 # Assign random fish names to each community
 for community_name in community_names:
     # Randomly select 3 to 5 fish names for each community
-    num_fish = random.randint(10, 15)
+    num_fish = random.randint(1,11)
     fish_names = random.sample(fishes, num_fish)
     community_fish[community_name] = fish_names
 

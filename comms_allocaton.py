@@ -4,12 +4,12 @@ import random
 
 def comms_alloc(community_name):
     # Initialize Firebase Admin SDK with credentials
-    cred = credentials.Certificate(r"C:\Users\DELL\Downloads\firebase_gdsc\pyfirebasesdk.json")
+    cred = credentials.Certificate("pyfirebasesdk.json")
     firebase_admin.initialize_app(cred)
 
     # Create a Firestore client
     db = firestore.client()
-
+ 
     # Query the 'market' collection for documents with 'status' field set to 'open'
     open_market_docs = db.collection('market').where('status', '==', 'open').stream()
 
