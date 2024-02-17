@@ -61,7 +61,7 @@ community_fish = {}
 # Assign random fish names to each community
 for community_name in community_names:
     # Randomly select 3 to 5 fish names for each community
-    num_fish = random.randint(3, 5)
+    num_fish = random.randint(10, 15)
     fish_names = random.sample(fishes, num_fish)
     community_fish[community_name] = fish_names
 
