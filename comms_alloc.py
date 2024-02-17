@@ -99,4 +99,4 @@ def comms_alloc(community_name):
     return net_type_list
 
 # # Example usage
-comms_alloc("Community 6")
+comms_alloc("Community 10")
