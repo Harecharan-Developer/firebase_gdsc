@@ -7,7 +7,7 @@ import json  # Ensure json is imported correctly
 app = FastAPI()
 
 # Load the pkl file
-with open(r'C:\Users\DELL\Documents\Amrita\Unsegregated\ml_model.pkl', 'rb') as file:
+with open('ml_model.pkl', 'rb') as file:
     model = pickle.load(file)
 
 @app.post("/predict")
